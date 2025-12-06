@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>vim</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="vim-tutorial" />
+<meta name="author" content="fccm, 2025" />
+<meta name="keywords" content="vim, tutorial, file-editor, editing a .txt file" />
+<meta name="license" content="FDL, CC-by-sa_2.5 OR Later, Spdx:Any" />
+<style>
+body { background:#88a; }
+.tild { color:blue; font-weight:bold; }
+.visual { background:#fff; color:black; }
+pre { background:black; color:#fff; width:56%; }
+code { background:black; color:#fff; }
+p { width:60%; }
+h2 { font-size:1.3em; }
+.tl2 { font-style:italic; color:#668; font-size:0.94em; }
+</style>
+</head>
+<body>
+
+<h2>vim <span class="tl2">-tutorial</span></h2>
+
+<p>Vim is a text-editor for the console, with 2 modes.</p>
+
+<pre>
+$ vim file.txt
+</pre>
+
+<p>When you start vim, you are not initially in the edit mode.</p>
+<p>The easiest way to enter the edit mode at the beginning is
+to press the <code>Insert</code> key.</p>
+
+<pre>
+some text
+<span class="tild">~</span>
+<span class="tild">~</span>
+<span class="tild">~</span>
+<strong>-- INSERT --</strong>
+</pre>
+
+<p>You can also press the key <code>i</code> to enter the edit mode,
+which is easier to access on the keyboard.</p>
+
+<p>In edit mode, you can edit the content, with all the keys of your keyboard.</p>
+
+<p>This text-content is in the utf-8 format, by default.</p>
+
+<p>Exit the edit mode with the <code>Escape</code>-key, and you will
+be in the <code>command</code>-mode again, like at the beginning.</p>
+
+<p>In <code>command-mode</code>, you can do <strong>copy-paste</strong>
+commands for example.</p>
+
+<p>These commands are launched by keys that usually represent the initial
+letter from the name of this command.</p>
+
+<p>You can move the cursor with the arrow-keys, or some commands, to navigate
+into the text, of the source-code.</p>
+
+<p>In <code>command-mode</code>, you can start to high-light some text by
+pressing the <code>v</code>-key, which will start the <code>visual-mode</code>.</p>
+
+<pre>
+so<span class="visual">me te</span>xt
+<span class="tild">~</span>
+<span class="tild">~</span>
+<span class="tild">~</span>
+<strong>-- VISUAL --</strong>
+</pre>
+
+<p>Then move with the arrows until your destination, and press the command
+<code>y</code> (<em>yank</em>), which will place the text into the copy-buffer.</p>
+
+<p>Move again with the arrows, and place this text at the position of the cursor
+with <code>p</code>.</p>
+
+<p>Some commands to navigate, <code>e</code> to jump until the end of the next
+word, <code>gg</code> to jump until the beginning of the file, and <code>G</code>
+at the end.</p>
+
+<p>At the end, you can type <code>:w</code> to save, and <code>:q</code>, to
+quit (in "command-mode").</p>
+
+</body>
+</html>
