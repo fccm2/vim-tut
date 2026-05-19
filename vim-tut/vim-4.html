@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>vim-4</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="description" content="vim-tutorial" />
+<meta name="author" content="fccm, 2025" />
+<meta name="keywords" content="vim, tutorial, file-editor, editing a .txt file" />
+<meta name="license" content="FDL, CC-by-sa_2.5 OR Later, Spdx:Any" />
+<style>
+body { background:#88a; }
+.tild { color:blue; font-weight:bold; }
+.visual { background:#fff; color:black; }
+pre { background:black; color:#fff; width:56%; }
+hr { margin-right:43%; }
+code { background:black; color:#fff; }
+p { width:60%; }
+h2 { font-size:1.3em; }
+.tl2 { font-style:italic; color:#668; font-size:0.94em; }
+</style>
+</head>
+<body>
+
+<h2>vim <span class="tl2">-tutorial -4</span></h2>
+
+<p>Vim is a text-editor for the console, with 2 modes.</p>
+
+<pre>
+$ vim file.txt
+</pre>
+
+<p>When you start vim, you are not initially in the edit mode.</p>
+<p>The easiest way to enter the edit mode at the beginning is
+to press the <code>Insert</code> key.</p>
+
+<pre>
+some text
+<span class="tild">~</span>
+<span class="tild">~</span>
+<span class="tild">~</span>
+<strong>-- INSERT --</strong>
+</pre>
+
+<p>You can also press the key <code>i</code> to enter the edit mode,
+which is easier to access on the keyboard.</p>
+
+<p>In edit mode, you can edit the content, with all the keys of your keyboard.</p>
+
+<p>This text-content is in the utf-8 format, by default.</p>
+
+<p>Exit the edit mode with the <code>Escape</code>-key, and you will
+be in the <code>command</code>-mode again, like at the beginning.</p>
+
+<p>In <code>command-mode</code>, you can do <strong>copy-paste</strong>
+commands for example.</p>
+
+<p>These commands are launched by keys that usually represent the initial
+letter from the name of this command.</p>
+
+<p>You can move the cursor with the arrow-keys, or some commands, to navigate
+into the text, or the source-code.</p>
+
+<p>In <code>command-mode</code>, you can start to high-light some text by
+pressing the <code>v</code>-key, which will start the <code>visual-mode</code>.</p>
+
+<pre>
+so<span class="visual">me te</span>xt
+<span class="tild">~</span>
+<span class="tild">~</span>
+<span class="tild">~</span>
+<strong>-- VISUAL --</strong>
+</pre>
+
+<p>Then move with the arrows until your destination, and press the command
+<code>y</code> (<em>yank</em>), which will place the text into the copy-buffer.</p>
+
+<p>Move again with the arrows, and place this text at the position of the cursor
+with <code>p</code>.</p>
+
+<p>Some commands to navigate, <code>e</code> to jump until the end of the next
+word, <code>gg</code> to jump until the beginning of the file, and <code>G</code>
+at the end.</p>
+
+<p>At the end, you can type <code>:w</code> to save, and <code>:q</code>, to
+quit (in "command-mode").</p>
+
+<hr />
+
+<p>We already saw that you can enter the <code>edit-mode</code>, with <code>i</code>,
+but there are also other keys to do so, and position the cursor in different way.</p>
+
+<p><code>I</code>, will enter the edit-mode and position the cursor at the
+beginning of the current-line.</p>
+
+<p><code>O</code>, will start a new line above the current-line.</p>
+
+<p><code>o</code>, will start a new line under the current-line.</p>
+
+<p><code>a</code>, is similar than <code>i</code>, but will start
+editing after the current position of the cursor.</p>
+
+<p><code>A</code>, will start editing at the end of the line, where the
+cursor is currently positioned.</p>
+
+<p><code>A</code> and <code>a</code>, stand for <code>append</code>.</p>
+
+<hr />
+
+<p><code>deleting</code>. You can delete the content of the current line,
+from the current position of the cursor, until the end of the current line,
+with: <code>d $</code>.
+<code>d</code> being the command to <code>delete</code>, and <code>$</code>
+being the command to jump until the end of the current line.</p>
+
+<p>More commands to jump in command mode: <code>{</code> and <code>}</code>,
+to jump respectively until the beginning or the end of the current paragraph
+(or block of code, if you're coding).</p>
+
+<p><code>b</code>, to jump until the beginning of the current word, or until
+the beginning of the previous word, if you are already at the beginning of
+a word.</p>
+
+<hr />
+
+<p>With <code>d $</code>, you delete the content of the current line until
+its end, and stay in <code>command-mode</code>, but with <code>c $</code>,
+you will do the same, but you will enter the <code>edit-mode</code> in stead.</p>
+
+<hr />
+
+<p>The command <code>u</code>, is for <code>undo</code>. And <code>Ctrl+R</code>
+for <code>redo</code>.</p>
+
+<hr />
+
+<p><code>Ctrl+v</code>, vertical visual-mode, then move the cursor w/ the
+arrow-keys,</p>
+<p><code>Shift+v</code>, line visual-mode, then move the selection in a
+similar way.</p>
+
+<pre>
+so<span class="visual">me te</span>xt
+so<span class="visual">me te</span>xt
+some text
+<span class="tild">~</span>
+<span class="tild">~</span>
+<span class="tild">~</span>
+<strong>-- VISUAL BLOCK --</strong>
+</pre>
+
+<pre>
+some text
+<span class="visual">some text</span>
+some text
+<span class="tild">~</span>
+<span class="tild">~</span>
+<span class="tild">~</span>
+<strong>-- VISUAL LINE --</strong>
+</pre>
+
+<hr />
+
+<p>After a high-lightning with one of the <code>visual</code>-commands,
+you can either copying it w/ <code>y</code> (yank), or delete it w/
+<code>d</code> so that you can eventualy paste it in another place w/
+<code>p</code>.</p>
+
+<hr />
+
+<p><code>d %</code>, delete until the matching <code>&lt; &gt;</code>,
+<code>( )</code>,
+<code>[]</code> or
+<code>{}</code>, and place the result into the <code>copy-buffer</code>,
+so that you can <code>paste</code> it in another place w/ <code>p</code>.</p>
+
+<p><code>P</code> is similar than <code>p</code>, but will paste
+just before the cursor.</p>
+
+<hr />
+
+<p>You can edit several-files with:</p>
+
+<pre>
+$ vim file-1.txt file-2.txt
+</pre>
+
+<p>And then navigate from one to the other one with the keys:
+<code>:n</code>, <code>:N</code>.</p>
+
+<hr />
+
+<p>In command-mode, you can make a "grep" with:
+<code>/word</code>. It will search the next occurence of the
+<code>word</code>.</p>
+
+<hr />
+
+<p>it is possible to apply a "reg-exp", to change a word,<br />
+into another, w/ the cmd: <code>:%s!!!g</code></p>
+
+<pre>
+:%s!word-1!word-2!g
+</pre>
+
+<p><code>word-1</code>, will be replaced by <code>word-2</code>,<br />
+in all the file,</p>
+
+<hr />
+
+<p>nav/ from word to word's,</p>
+<p>place the cursor on a word, <br />
+then press <code>*</code>, (star-key)<br />
+it 'll jump until the next identical word,<br />
+</p>
+<!--
+ style="font-style:under-ligned;"
+ -->
+<pre>some w<span class="tild">o</span>rd
+another word,</pre>
+<p>nav/ from word to word's,</p>
+<p>press <code>*</code>, (star-key)<br /></p>
+
+<pre>some word
+another <span class="tild">word</span>,</pre>
+
+<hr />
+
+<pre>
+license: fdl, cc-by-sa_2.5, or later,
+</pre>
+
+</body>
+</html>
